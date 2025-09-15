@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.HttpOverrides;
 using Umbraco.Cms.Persistence.Sqlite;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);

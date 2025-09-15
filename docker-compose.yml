@@ -18,7 +18,9 @@ services:
       - Umbraco__CMS__Unattended__UnattendedUserName=Admin
       - Umbraco__CMS__Unattended__UnattendedUserEmail=admin@example.com
       - Umbraco__CMS__Unattended__UnattendedUserPassword=AdminPassword123!
-      - Umbraco__CMS__WebRouting__UmbracoApplicationUrl=https://your-domain.com
+      - Umbraco__CMS__WebRouting__UmbracoApplicationUrl=${UMBRACO_URL:-https://localhost}
+      - Umbraco__CMS__Security__AuthCookieSameSite=None
+      - Umbraco__CMS__Security__AuthCookieSecure=true
     volumes:
       - ./umbraco/media:/app/wwwroot/media
       - ./umbraco/logs:/app/umbraco/Logs
