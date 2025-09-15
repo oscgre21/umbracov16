@@ -1,0 +1,17 @@
+# Dockerfile for initializing the Umbraco project
+FROM mcr.microsoft.com/dotnet/sdk:8.0
+WORKDIR /app
+
+# Install Umbraco templates
+RUN dotnet new install Umbraco.Templates
+
+# Create Umbraco project
+RUN dotnet new umbraco -n UmbracoProject --no-restore
+
+WORKDIR /app/UmbracoProject
+
+# Restore packages
+RUN dotnet restore
+
+# Build the project
+RUN dotnet build
